@@ -84,19 +84,16 @@ class _AppServiceClient implements AppServiceClient {
   @override
   Future<AllDataResponse> sendAllData(
     String token,
-    File image,
+    String image,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     final _data = FormData();
-    _data.files.add(MapEntry(
+    _data.fields.add(MapEntry(
       'img',
-      MultipartFile.fromFileSync(
-        image.path,
-        filename: image.path.split(Platform.pathSeparator).last,
-      ),
+      image,
     ));
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<AllDataResponse>(Options(

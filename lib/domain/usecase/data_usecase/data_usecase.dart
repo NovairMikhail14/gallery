@@ -1,5 +1,4 @@
 
-import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:gallery/data/network/failure.dart';
@@ -7,7 +6,6 @@ import 'package:gallery/data/network/requests.dart';
 import 'package:gallery/domain/model/auth_models.dart';
 import 'package:gallery/domain/usecase/base_usecase.dart';
 import 'package:gallery/domain/repository/repository.dart';
-import 'package:image_picker/image_picker.dart';
 
 class GetAllDataUseCaseInput {
   String token;
@@ -27,7 +25,7 @@ GetAllDataUseCaseUseCase(this.repository);
   }
   class SendAllDataUseCaseInput {
   String token;
-  File image;
+  String image;
   SendAllDataUseCaseInput(
     this.token,
       this.image

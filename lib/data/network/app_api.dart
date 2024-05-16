@@ -1,9 +1,6 @@
-import 'dart:io';
-import 'dart:ui';
 
 import 'package:dio/dio.dart';
 import 'package:gallery/app/constants.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:retrofit/http.dart';
 import '../responses/auth_response/auth_responses.dart';
 
@@ -26,6 +23,6 @@ abstract class AppServiceClient {
   @POST("/upload")
   Future<AllDataResponse> sendAllData(
     @Header('Authorization') String token,
-    @Part(name: 'img') File image,
+    @Part(name: 'img') String image,
   );
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
 import '../../../resources/assets_manager.dart';
 import '../../../resources/color_manger.dart';
@@ -7,7 +6,7 @@ import '../../../resources/strings_manager.dart';
 import '../../../resources/value_manager.dart';
 import 'action_button.dart';
 
-mainLaertDialoge(Function getFromGallery,Function getFromCamera){
+mainLaertDialoge(Function()? getFromGallery,Function()?  getFromCamera){
   return AlertDialog(
     contentPadding: EdgeInsets.all(AppSize.s36),
     backgroundColor:
@@ -21,9 +20,7 @@ mainLaertDialoge(Function getFromGallery,Function getFromCamera){
         ActionButton(
           background: ColorManager.btnColor1,
           title: AppStrings.gallery,
-          onPress: () {
-            getFromGallery();
-          },
+          onPress: getFromGallery,
           imagePath: ImageAssets.gallery,
           roundedRadius: AppSize.s48,
           height: AppSize.s52,
@@ -32,9 +29,7 @@ mainLaertDialoge(Function getFromGallery,Function getFromCamera){
         ActionButton(
           background: ColorManager.btnColor2,
           title: AppStrings.camera,
-          onPress: () {
-            getFromCamera();
-          },
+          onPress: getFromCamera,
           imagePath: ImageAssets.camera,
           roundedRadius: AppSize.s48,
           height: AppSize.s52,

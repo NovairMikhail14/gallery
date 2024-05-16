@@ -1,7 +1,5 @@
-import 'dart:io';
 
 import 'package:bloc/bloc.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
 
 import '../../../app/app_pref.dart';
@@ -39,10 +37,11 @@ class DataCubit extends Cubit<DataState> {
     }
   }
 
-  sendImage(File imagePath) async{
+  sendImage(String imagePath) async {
     String? token = await _shearedPref.getAppToken();
     try {
-      (await sendAllDataUseCaseUseCase.execute(SendAllDataUseCaseInput(token!,imagePath)))
+      (await sendAllDataUseCaseUseCase
+              .execute(SendAllDataUseCaseInput(token!, imagePath)))
           .fold(
         (l) {
           emit(DataStateFailed());

@@ -1,9 +1,4 @@
 // Auth
-
-import 'dart:io';
-
-import 'package:image_picker/image_picker.dart';
-
 class GetAllDataRequest {
   String token;
   GetAllDataRequest(
@@ -18,7 +13,7 @@ class LoginRequest {
 
 class SendAllDataRequest {
   String token;
-  File image;
+  String image;
   SendAllDataRequest(
       this.token,
       this.image
