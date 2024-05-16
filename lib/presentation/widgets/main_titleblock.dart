@@ -20,7 +20,7 @@ class MainTitleBlock extends StatelessWidget {
               SizedBox(
                 child: Text(
                   title,
-                  style: Theme.of(context).textTheme.displayLarge!.copyWith(fontWeight: FontWeight.w500),textAlign: textAlign ,
+                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w500),textAlign: textAlign ,
                   maxLines: 2,
                 ),
               ),
@@ -30,7 +30,7 @@ class MainTitleBlock extends StatelessWidget {
               SizedBox(
                 child: Text(
                   subtitle,
-                  style: Theme.of(context).textTheme.displayLarge!.copyWith(fontWeight: FontWeight.w500),textAlign: textAlign ,
+                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w500),textAlign: textAlign ,
                   maxLines: 2,
                 ),
               ),

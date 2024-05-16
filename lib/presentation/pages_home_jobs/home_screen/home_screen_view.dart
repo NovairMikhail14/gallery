@@ -1,4 +1,6 @@
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:gallery/presentation/pages_home_jobs/cubit/data_cubit.dart';
 import 'package:gallery/presentation/widgets/main_titleblock.dart';
@@ -155,15 +157,18 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                             childAspectRatio: 1,
                           ),
                           delegate: SliverChildBuilderDelegate(
-                            childCount: images.length,
+                            childCount: pickImage.length,
                             (context, index) {
                               return Container(
-                                width: AppSize.s20,
-                                height: AppSize.s20,
+                                clipBehavior: Clip.antiAlias,
                                 decoration: BoxDecoration(
+                                  color: Colors.red,
                                     borderRadius: BorderRadius.all(
                                         Radius.circular(AppSize.s12))),
-                                child: Image.network(images[index]),
+                                child: Image.file(File(pickImage[index].path),fit: BoxFit.fill,
+                                  width: AppSize.s60,
+                                  height: AppSize.s60,
+                                ),
                               );
                             },
                           ),
