@@ -45,7 +45,7 @@ class RepositoryImpl extends Repository {
       try {
         final response = await remoteDataSource.getAllData(getAllJobRequest);
 
-        if (response.status == null) {
+        if (response.status == "success") {
           // Success
           return Right(response.toDomain() as AllDAta);
     } else {
@@ -68,7 +68,7 @@ class RepositoryImpl extends Repository {
       try {
         final response = await remoteDataSource.sendAllData(sendAllDataRequest);
 
-        if (response.status == null) {
+        if (response.status == "success") {
           // Success
           return Right(response.toDomain() as AllDAta);
         } else {
